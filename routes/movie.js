@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
     Movie.find()
         .then(allTheMoviesFromDB => {
             console.log('Retrieved movies from DB:', allTheMoviesFromDB);
-            res.render('movies', { Movie: allTheMoviesFromDB }); 
+            res.render('movies', { movies: allTheMoviesFromDB }); 
         })
         .catch(error => {
             console.log('Error while getting the movies from the DB: ', error);
