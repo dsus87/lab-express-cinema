@@ -42,7 +42,7 @@ const moviesRoutes = require('./routes/movie');;
 app.use('/movies', moviesRoutes);
 
 const movieDetail = require('./routes/movie-detail');; 
-app.use('/movies', movieDetail);
+app.use('/', movieDetail);
 
 
 
