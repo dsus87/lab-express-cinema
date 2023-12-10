@@ -10,16 +10,13 @@ require('./db');
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 
 
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
-
-app.set('views', __dirname + `/views`);
-app.set('view engine', 'hbs');
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require('./config')(app);
@@ -34,8 +31,10 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
-const moviesRoutes = require('./routes/index'); // <== import (require) movies routes
-app.use('/', moviesRoutes); // sets bookRoutes to work with express server
+
+const moviesRoutes = require('./routes/movie');; 
+app.use('/movies', moviesRoutes);
+
 
 app.listen(port, console.log(`cinema project running on port ${port}`))
 
