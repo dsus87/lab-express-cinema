@@ -38,10 +38,11 @@ app.locals.title = `${capitalized(projectName)}- Generated with Ironlauncher`;
 const index = require('./routes/index');
 app.use('/', index);
 
-
-
 const moviesRoutes = require('./routes/movie');; 
 app.use('/movies', moviesRoutes);
+
+const movieDetail = require('./routes/movie-detail');; 
+app.use('/movies', movieDetail);
 
 
 
